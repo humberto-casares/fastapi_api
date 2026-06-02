@@ -1,12 +1,22 @@
 from google.protobuf import timestamp_pb2
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 from enum import Enum, auto
 from typing import TypedDict
 import time
-from zoneinfo import ZoneInfo
+from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 SERVICE_NAME = "academia_tesla"
-mexico_tz = ZoneInfo("America/Mexico_City")
+
+
+def _get_mexico_timezone():
+    try:
+        return ZoneInfo("America/Mexico_City")
+    except ZoneInfoNotFoundError:
+        # Windows/Python installs without tzdata can fail here; keep the app running.
+        return timezone(timedelta(hours=-6), name="America/Mexico_City")
+
+
+mexico_tz = _get_mexico_timezone()
 
 class StrEnum(str, Enum):
     """
