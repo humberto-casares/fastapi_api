@@ -4,7 +4,7 @@ services:
     image: "postgres:16.3"
     container_name: ubuntu_container
     environment:
-      POSTGRES_DB: academia_tesla_db
+      POSTGRES_DB: users_fastapi
       POSTGRES_USER: ubuntu
       POSTGRES_PASSWORD: 123123
     volumes:
