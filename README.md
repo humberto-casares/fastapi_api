@@ -1,3 +1,6 @@
-# FastAPI API
-FastAPI API for General CRUD Operations
-Localhost Backend: http://localhost:8099/swagger-ui
+# FastAPI Users API
+
+Simple FastAPI microservice example with async CRUD operations for a `users` table using `asyncpg`, custom DB helpers, and yoyo migrations.
+
+- Swagger UI: [http://localhost:8099/management/swagger-ui](http://localhost:8099/management/swagger-ui)
+- OpenAPI JSON: [http://localhost:8099/management/openapi.json](http://localhost:8099/management/openapi.json)
