@@ -1,0 +1,29 @@
+﻿#setup
+setuptools==75.8.0
+
+# ASYNC SERVER
+# uvloop==0.21.0 # Event Loop
+httptools==0.6.4 # binding for the nodejs HTTP parser
+anyio==4.8.0 # async networking and concurrency
+fastapi==0.115.13 # Micro web app framework
+uvicorn[standard]==0.34.3 # async ASGI
+
+# ASYNC /KAFKA/DB/AWS
+aiokafka==0.12.0 # kafka async client
+asyncpg==0.30.0 # DB pool
+aiohttp==3.11.11 # async http request
+
+# DB MIGRAITON
+yoyo-migrations==9.0.0 # DB schema migration tool
+psycopg2==2.9.9 # DB schema migration lib
+
+#OTHERS
+PyYAML==6.0.2 #config
+pydantic==2.10.4 #python typping
+pydantic-settings==2.8.1
+python-dateutil==2.9.0.post0
+python-dotenv==1.0.1
+structlog==24.4.0 # logging Async
+orjson==3.10.14 # Json converstion
+protobuf==6.31.1 # Google protobuffers
+tenacity==9.0.0 # Retry handling

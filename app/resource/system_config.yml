@@ -1,0 +1,40 @@
+factor_mult: 1.4 # multiplier for factor for delay
+consumer_jobs: 1 # number of Consumer Kafka Jobs
+count_buffer_size: 7 # concat tokens before publish them
+execute_tasks_parallel: 10 # number of tasks to execute in parallel controlled by Semaphore
+sleep_tasks: [10, 15, 20]
+message_len_alarm : 1000 # alarm if message length is more than 20000 characters
+contact_minutes: 60  # re contact user after 60 minutes
+max_contact: 3 # max RE-contact by task
+retriever_tasks_limit: 20 # max number of tasks to retrieve from DB
+
+#DB
+pool_min: 2 # min connection pool size
+pool_max: 5 # max connection pool size
+db_retries: 2 # max retries to execute a db operation
+db_wait_factor: 2 # wait factor to execute a db operation
+
+#LOCK TASKS
+look_wait: 2 # task lock wait time in seconds
+look_expire: 180 # task lock finish timeout in seconds
+
+# requests for Fintech Stats
+requests_timeout_seconds: 2 # timeout to execute a requests operation
+requests_max_retries: 3 # max retries to execute a requests operation
+requests_wait_retries: 3 # wait time between retries in seconds
+
+# kafka producer
+producer_request_timeout_ms: 2000 # Maximum time in milliseconds to await a response from the broker before timing out (40 to 2 seconds).
+producer_retry_backoff_ms: 100 # Delay in milliseconds between retry attempts for sending messages after the first failure (100 milliseconds).
+producer_connections_max_idle_ms: 540000 # Maximum time in milliseconds a connection can remain idle before being closed (9 minutes).
+producer_transaction_timeout_ms: 3000 # Maximum duration in milliseconds for a transaction to complete before being aborted (60 to 3 seconds).
+
+# kafka consumer
+consumer_fetch_max_wait_ms: 500 # Max wait time for fetching messages; server waits up to 500 ms to accumulate data before responding to fetch request.
+consumer_request_timeout_ms: 5000 # Request timeout; client waits up to 4000 ms for a response from the server, ensuring timely failure detection.
+consumer_retry_backoff_ms: 100 # Retry backoff time; waits 100 ms between consecutive retry attempts for a failed request, helping to manage server load and response time.
+consumer_max_poll_interval_ms: 25000 # Max interval between poll() calls; set to 25000 ms to prevent the consumer from being considered inactive and ensure continuous message processing.
+consumer_session_timeout_ms: 10000 # Session timeout; sets the time limit to 10000 ms for the consumer to send heartbeats, beyond which the consumer is considered disconnected.
+consumer_heartbeat_interval_ms: 3000 # Heartbeat interval; consumer sends a heartbeat to the broker every 3000 ms to signal its active status and maintain its session.
+consumer_consumer_timeout_ms: 1000 # Consumer polling timeout; poll() method blocks for up to 1000 ms if data is not immediately available, optimizing response time and resource usage.
+consumer_connections_max_idle_ms: 540000 # Max connection idle time; allows connections to remain idle for up to 540000 ms before being closed, reducing unnecessary network traffic and resource utilization.

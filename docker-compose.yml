@@ -1,0 +1,19 @@
+# This file exists in order to create a local environment associated with the "local" profile
+services:
+  database:
+    image: "postgres:16.3"
+    container_name: ubuntu_container
+    environment:
+      POSTGRES_DB: academia_tesla_db
+      POSTGRES_USER: ubuntu
+      POSTGRES_PASSWORD: 123123
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./postgres-scripts:/docker-entrypoint-initdb.d
+    ports:
+      - "5432:5432"
+
+volumes:
+  postgres_data:
+  cache:
+    driver: local
