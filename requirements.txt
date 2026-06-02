@@ -27,3 +27,4 @@ structlog==24.4.0 # logging Async
 orjson==3.10.14 # Json converstion
 protobuf==6.31.1 # Google protobuffers
 tenacity==9.0.0 # Retry handling
+email_validator==2.2.0
